@@ -25,7 +25,6 @@ class BalanceController extends Controller
             return $this->responseValidation($errors);
         }
 
-
         DB::beginTransaction();
         try {
             $user_balance = UserBalance::where('user_id',auth()->user()->id)->firstOrFail();
@@ -40,7 +39,7 @@ class BalanceController extends Controller
             $history->activity = 'topup'; 
             $history->type = 'debit';
             $history->ip = $request->ip(); 
-            $history->location = 'credit'; 
+            $history->location = $request->ip() == '127.0.0.1' ? 'localhost' : \Location::get($request->ip())->countryName; 
             $history->user_agent = $request->server('HTTP_USER_AGENT'); 
             $history->author = 'web'; 
             $history->save();
