@@ -17,7 +17,7 @@ class UserController extends Controller
     }
 
     public function history(){
-        $data = auth()->user()->with('balance.histories')->get();
+        $data = User::whereId(auth()->user()->id)->with('balance.histories')->first();
         return $this->responseData($data);
     }
 }
