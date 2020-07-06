@@ -53,7 +53,6 @@ class AuthController extends Controller
             $history->activity = 'initial ballance';
             $history->type = 'debit';
             $history->ip = $request->ip(); 
-            $history->location = $request->ip() == '127.0.0.1' ? 'localhost' : \Location::get($request->ip())->countryName; 
             $history->author = 'system'; 
             $history->save();
     

@@ -21,9 +21,9 @@ class CreateUserBalanceHistoriesTable extends Migration
             $table->integer('balance_before');
             $table->string('activity');
             $table->enum('type', ['credit', 'debit']);
-            $table->string('ip');
-            $table->string('location');
-            $table->string('user_agent');
+            $table->string('ip')->nullable();
+            $table->string('location')->nullable();
+            $table->string('user_agent')->nullable();
             $table->string('author')->nullable();
             $table->timestamps();
         });
