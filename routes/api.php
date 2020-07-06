@@ -24,4 +24,7 @@ Route::group(['prefix' => 'account'], function () {
     });
 });
 
+Route::group(['prefix' => 'transaction','middleware' => 'auth:api'], function () {
+    Route::post('/topup','Api\BalanceController@topup');
+});
 
