@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Utils\FuncResponse; 
+use App\User; 
 
 class UserController extends Controller
 {
     use FuncResponse; 
 
     public function profile(){
-        $data = auth()->user()->with('balance')->get();
+        $data = User::whereId(auth()->user()->id)->with('balance')->first();
         return $this->responseData($data);
     }
 
