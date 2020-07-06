@@ -19,6 +19,7 @@ Route::group(['prefix' => 'account'], function () {
     Route::post('/login', 'Api\AuthController@login');
     Route::group(['middleware' => 'auth:api'], function () {
         Route::get('/profile','Api\UserController@profile');
+        Route::get('/histories','Api\UserController@history');
         Route::post('/logout', 'Api\AuthController@logout');
     });
 });

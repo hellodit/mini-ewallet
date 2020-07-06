@@ -15,4 +15,8 @@ class UserController extends Controller
         return $this->responseData($data);
     }
 
+    public function history(){
+        $data = auth()->user()->with('balance.histories')->get();
+        return $this->responseData($data);
+    }
 }
