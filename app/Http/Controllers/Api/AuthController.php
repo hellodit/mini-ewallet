@@ -51,10 +51,9 @@ class AuthController extends Controller
             $history->balance_before = 0; 
             $history->balance_after = 0; 
             $history->activity = 'initial ballance';
-            $history->type = 'credit'; 
+            $history->type = 'debit';
             $history->ip = $request->ip(); 
-            $history->location = 'credit'; 
-            $history->user_agent = $request->server('HTTP_USER_AGENT'); 
+            $history->location = $request->ip() == '127.0.0.1' ? 'localhost' : \Location::get($request->ip())->countryName; 
             $history->author = 'system'; 
             $history->save();
     
