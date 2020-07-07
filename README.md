@@ -29,6 +29,6 @@ Via [Postman Documenter](https://documenter.getpostman.com/view/4080490/T17J7mKo
   - Tranfer balance 
 
 ## Dummy Accounts `<email:password>` 
-1. `user1@mail.com:dummy`
-2. `user2@mail.com:dummy`
-3. `user3@mail.com:dummy`
+1. `user0@mail.com:dummy`
+2. `user1@mail.com:dummy`
+3. `user2@mail.com:dummy`
